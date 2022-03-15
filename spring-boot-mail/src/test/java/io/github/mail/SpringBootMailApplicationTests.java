@@ -1,4 +1,4 @@
-package io.github.mail;
+package io.github.mockito;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
