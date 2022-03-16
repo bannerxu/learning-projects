@@ -1,0 +1,9 @@
+# 应用名称
+spring:
+  application:
+    name: spring-boot-shiro
+server:
+  port: 8888
+
+
+
