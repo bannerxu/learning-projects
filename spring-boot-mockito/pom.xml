@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>io.github.mail</groupId>
     <artifactId>spring-boot-mail</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>spring-boot-mail</name>
-    <description>spring-boot-mail</description>
+    <name>spring-boot-mockito</name>
+    <description>spring-boot-mockito</description>
 
     <properties>
         <java.version>1.8</java.version>
@@ -28,10 +28,16 @@
         </dependency>
 
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-mail</artifactId>
-            <version>2.5.6</version>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
         </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+
     </dependencies>
 
     <dependencyManagement>
@@ -63,7 +69,7 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <version>2.1.17.RELEASE</version>
                 <configuration>
-                    <mainClass>io.github.mockito.SpringBootMailApplication</mainClass>
+                    <mainClass>io.github.mockito.Application</mainClass>
                 </configuration>
                 <executions>
                     <execution>
