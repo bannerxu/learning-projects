@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import top.banner.lib.lock.lock.RedisLock;
 
 import java.util.Random;
+import java.util.concurrent.ExecutorService;
 import java.util.concurrent.TimeUnit;
 
 @Service
@@ -25,8 +26,23 @@ public class TestService {
 
     @RedisLock(name = "lockAdd", key = "'lock'")
     public void lockAdd() throws InterruptedException {
-        TimeUnit.MILLISECONDS.sleep(random.nextInt(1000));
+        TimeUnit.MILLISECONDS.sleep(random.nextInt(100));
         b++;
         log.info("b => {}", b);
+    }
+
+
+    public void awaitAfterShutdown(ExecutorService threadPool) {
+
+        threadPool.shutdown();
+        try {
+            if (!threadPool.awaitTermination(60, TimeUnit.SECONDS)) {
+                threadPool.shutdownNow();
+            }
+        } catch (InterruptedException ex) {
+            threadPool.shutdownNow();
+            Thread.currentThread().interrupt();
+        }
+
     }
 }

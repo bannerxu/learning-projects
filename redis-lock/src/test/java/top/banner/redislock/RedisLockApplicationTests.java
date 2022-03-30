@@ -48,5 +48,9 @@ public class RedisLockApplicationTests {
                 }
             });
         }
+        testService.awaitAfterShutdown(pool);
+
     }
+
+
 }
