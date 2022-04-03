@@ -3,7 +3,7 @@ package top.banner.redislock.service;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
-import top.banner.lib.lock.lock.RedisLock;
+import top.banner.lib.lock.RedisLock;
 
 import java.util.Random;
 import java.util.concurrent.ExecutorService;
@@ -27,8 +27,7 @@ public class TestService {
     @RedisLock(name = "lockAdd", key = "'lock'")
     public void lockAdd() throws InterruptedException {
         TimeUnit.MILLISECONDS.sleep(random.nextInt(100));
-        b++;
-        log.info("b => {}", b);
+        log.info("b => {}", b++);
     }
 
 
