@@ -2,6 +2,22 @@
 spring:
   application:
     name: spring-boot-swagger
+
+  redis:
+    host: 127.0.0.1
+    password:
+    port: 6379
+    database: 0
+    lettuce:
+      pool:
+        max-active: 8
+        min-idle: 0
+  cache:
+    # 指定缓存类型
+    type: redis
+    redis:
+      # 单位是毫秒
+      time-to-live: 300000
 server:
   port: 8889
 
