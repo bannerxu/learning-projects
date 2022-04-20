@@ -156,5 +156,9 @@ protected HandlerExecutionChain getHandlerExecutionChain(Object handler, HttpSer
 
 这里直接根据已有的 `handler` 创建一个新的 `HandlerExecutionChain` 对象，然后遍历 `adaptedInterceptors` 集合，该集合里存放的都是拦截器，如果拦截器的类型是 `MappedInterceptor`，则调用 matches 方法去匹配一下，看一下是否是拦截当前请求的拦截器，如果是，则调用 `chain.addInterceptor` 方法加入到 `HandlerExecutionChain` 对象中；如果就是一个普通拦截器，则直接加入到 `HandlerExecutionChain` 对象中。
 
+## 三、AbstractUrlHandlerMapping系列
 
+### 3.1 AbstractUrlHandlerMapping
+
+按照 `URL` 地址来进行匹配的，它的原理就是将 `URL` 地址与对应的 `Handler` 保存在同一个 `Map` 中，当调用 `getHandlerInternal` 方法时，就根据请求的 `URL` 去 `Map` 中找到对应的 `Handler` 返回
 
